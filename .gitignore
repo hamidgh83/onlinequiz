@@ -5,6 +5,9 @@ vendor/
 # Lock files
 *.lock
 
+# NPM Packages
+node_modules
+
 # Local configs
 config/autoload/*.local.php
 
