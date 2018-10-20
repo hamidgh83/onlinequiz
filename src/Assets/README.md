@@ -1,4 +1,4 @@
-equirements
+### Requirements
 This project requires **npm** to be installed. 
 
 ### Installation
