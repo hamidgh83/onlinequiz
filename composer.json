@@ -1,0 +1,24 @@
+{
+    "name": "hamidgh83/onlinequiz",
+    "description": "This is an small program to take an online Quiz.",
+    "type": "project",
+    "require": {
+        "php": ">=7.0"
+    },
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Hamid Ghorashi",
+            "email": "h.ghorashi@gmail.com"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {
+            "Model\\" : "src/Model/",
+            "View\\" : "src/View/",
+            "Controller\\" : "src/Controller/",
+            "Service\\" : "src/Service/"
+        }
+    }
+}
