@@ -1,0 +1,14 @@
+{
+  "name": "project-assets",
+  "version": "1.0.0",
+  "description": "Here is the third party libraries of the project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hamid Ghorashi",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
