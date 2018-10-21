@@ -1,0 +1,23 @@
+body {
+    background-color: #edeeef;
+}
+
+.content-wraper {
+    margin-top: 50px;
+}
+
+.progress {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.question h1 {
+    text-align: center;
+    font-weight: normal;
+    font-size: 12pt;
+    padding: 0 0 30px;
+}
+
+.answers [class*=col-] {
+    margin-bottom: 15px;
+}
