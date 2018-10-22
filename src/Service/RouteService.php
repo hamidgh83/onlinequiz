@@ -108,7 +108,7 @@ class RouteService
             $queryString = '&' . implode('&', $arr);
         }
 
-        return $this->getBaseUrl() . "?controller=$controller&action=$action" . $queryString;
+        return urldecode($this->getBaseUrl() . "?controller=$controller&action=$action" . $queryString);
     }
 
     /**

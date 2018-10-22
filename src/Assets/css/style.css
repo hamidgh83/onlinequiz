@@ -19,6 +19,20 @@ body {
     padding-left: 30px;
 }
 
+.home form .help-block {
+    font-size: 10pt;
+    text-align: left;
+}
+
+.home form .help-block {
+    display: none;
+}
+
+.home form .has-error .help-block {
+    display: block;
+}
+
+
 /* Quiz page */
 .content-wraper {
     margin-top: 50px;
