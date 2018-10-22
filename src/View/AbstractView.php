@@ -2,11 +2,20 @@
 
 namespace View;
 
+use Service\RouteService;
+
 abstract class AbstractView
 {
     private $template  = 'default';
 
     private $viewPath;
+
+    protected $router; 
+
+    public function __construct(RouteService $router)
+    {
+        $this->router = $router;
+    }
 
     /**
      * Set path to the view files of a given controller name
@@ -121,7 +130,7 @@ abstract class AbstractView
     public function render($view, $params = [])
     {
         $content = $this->loadFile($view, $params);
-        
+
         return $this->loadFile($this->getTemplate(), ['content' => $content], true);
     }
 }

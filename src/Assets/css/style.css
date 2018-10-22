@@ -2,8 +2,30 @@ body {
     background-color: #edeeef;
 }
 
+/* Home page */
+.home h1 {
+    font-size: 18pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 45px 0;
+}
+
+.home form {
+    text-align: center;
+}
+
+.home form .btn-primary {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+/* Quiz page */
 .content-wraper {
     margin-top: 50px;
+}
+
+.dropdown.bootstrap-select {
+    width: 100% !important; 
 }
 
 .progress {
@@ -21,3 +43,4 @@ body {
 .answers [class*=col-] {
     margin-bottom: 15px;
 }
+

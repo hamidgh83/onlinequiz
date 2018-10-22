@@ -50,7 +50,7 @@ abstract class AbstractController
      */
     public function render($file, $params = [])
     {
-        $view = new View;
+        $view = new View($this->router);
         
         $view->setViewPath($this->getId());
         echo $view->render($file, $params);
