@@ -60,4 +60,16 @@ $('document').ready(function () {
     $('.home').find('form').on('submit', function() {
         return $(this).validate();
     });
+
+    $('#question-form').on('submit', function() {
+        var form  = $(this);
+
+        if (!form.find("input[name='answer']:checked").val()) {
+            $('.alert').text('You should select an answer.');
+            $('.alert').show();
+            return false;
+        }
+
+        return true;
+    });
 });
