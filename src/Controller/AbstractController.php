@@ -42,13 +42,26 @@ abstract class AbstractController
     }
 
     /**
-     * Render a HTML page view
+     * Redirect to a new
      *
-     * @param [type] $view
+     * @param [type] $controller
+     * @param string $action
      * @param array $params
      * @return void
      */
-    public function render($file, $params = [])
+    public function redirect(string $controller, string $action, array $params = [])
+    {
+        return $this->router->redirect($controller, $action, $params);
+    }
+
+    /**
+     * Render a HTML page view
+     *
+     * @param string $view
+     * @param array $params
+     * @return void
+     */
+    public function render(string $file, array $params = [])
     {
         $view = new View($this->router);
         

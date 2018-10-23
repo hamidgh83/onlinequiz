@@ -93,7 +93,7 @@ abstract class AbstractView
      * @param boolean $isTemplate
      * @return string
      */
-    private function loadFile($file, $params, $isTemplate = false)
+    private function loadFile(string $file, array $params, bool $isTemplate = false)
     {
         if ($isTemplate) {
             $filePath = $this->getTemplateFile($file);
@@ -127,7 +127,7 @@ abstract class AbstractView
      * @param array $params
      * @return string
      */
-    public function render($view, $params = [])
+    public function render(string $view, array $params = [])
     {
         $content = $this->loadFile($view, $params);
 

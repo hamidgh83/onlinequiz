@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Service\QuizService;
+use Service\SessionService;
 
 class IndexController extends AbstractController
 {
