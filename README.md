@@ -9,6 +9,12 @@ Download the source code from:
 ```sh
 git clone https://github.com/hamidgh83/onlinequiz.git
 ```
+After cloning the source code go to the project folder and run:
+
+```sh
+composer update
+```
+
 Then to setup the project you need to create a database named "onlinequiz" and import sql file from the directory ***[project_path]/data***. Then go to ***Assest*** folder and update dependency packages using the following command:
 
 ```sh
