@@ -51,7 +51,7 @@ class RouteService
         if(isset($_SERVER['HTTPS'])){
             $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
         }
-        else{
+        else {
             $protocol = 'http';
         }
         
@@ -109,6 +109,22 @@ class RouteService
         }
 
         return urldecode($this->getBaseUrl() . "?controller=$controller&action=$action" . $queryString);
+    }
+
+    /**
+     * Redirect to a new
+     *
+     * @param [type] $controller
+     * @param string $action
+     * @param array $params
+     * @return void
+     */
+    public function redirect(string $controller, string $action, array $params = [])
+    {
+        $url = $this->createUrl($controller, $action, $params);
+
+        header("Location: $url");
+        exit();
     }
 
     /**

@@ -13,7 +13,15 @@ abstract class AbstractModel
 
     public function insert(array $data)
     {
-        return $this->db->insert($data);
+        $columns = array_keys($data);
+        $params  = $columns;
+        array_walk($params, function(&$val) {
+            $val = ':' . $val;
+        });
+        
+        $query = "INSERT INTO `" . $this->getTablename() . "` (" . implode(', ', $columns) . ") VALUES (" . implode(', ', $params) . ")";
+
+        return $this->db->insert($query, $data);
     }
 
     public function update(array $data)
@@ -29,7 +37,7 @@ abstract class AbstractModel
     public function findById(int $id)
     {
         if ($result = $this->find(['id' => $id])) {
-            return each($result);
+            return current($result ? $result : []);
         }
 
         return null;
@@ -40,6 +48,13 @@ abstract class AbstractModel
         $query = 'SELECT * FROM `' . $this->getTableName() . '`';
         
         return $this->db->executeQuery($query, $criteria);
+    }
+
+    public function numRows(array $criteria = [])
+    {
+        $query = 'SELECT count(*) FROM `' . $this->getTableName() . '`';
+
+        return $this->db->numRows($query, $criteria);
     }
 
     public function buildQuery(string $query)

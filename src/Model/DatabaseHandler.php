@@ -48,19 +48,13 @@ class DatabaseHandler
         return $db;
     }
 
-    public function insert(array $data = [])
+    public function insert($sql, $params)
     {
-        $columns = array_keys($data);
-        $params  = $columns;
-        array_walk($params, function(&$val) {
-            $val = ':' . $val;
-        });
-        
-        $query = "INSERT INTO `" . $this->getTablename() . "` (" . implode(', ', $columns) . ") VALUES (" . implode(', ', $params) . ")";
-
         $stmt = $this->db->prepare($sql);
 
-        $stmt->execute($data); 
+        $stmt->execute($params); 
+
+        return $this->db->lastInsertId();
     }
 
     /**
@@ -85,5 +79,30 @@ class DatabaseHandler
         $stmt->execute($params); 
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Get number of rows 
+     *
+     * @param string $sql
+     * @param array $params
+     * @return int
+     */
+    public function numRows($sql, $params = [])
+    {
+        if(count($params) > 0) {
+            $conditions = array_keys($params);
+            array_walk($conditions, function(&$val) {
+                $val = $val . '=:' . $val;
+            });
+
+            $sql .= ' WHERE ' . implode(' AND ', $conditions);
+        }
+        
+        $result = $this->db->prepare($sql); 
+        
+        $result->execute($params); 
+        
+        return $result->fetchColumn(); 
     }
 }
